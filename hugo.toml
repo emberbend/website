@@ -1,0 +1,16 @@
+baseURL = 'https://emberbend.com/'
+languageCode = 'en-us'
+title = 'Ember Bend'
+disableKinds = ['taxonomy', 'term', 'rss', 'sitemap']
+
+[params]
+  email = 'hello@emberbend.com'
+
+[[menus.footer]]
+  name = 'Privacy'
+  pageRef = '/privacy'
+  weight = 20
+[[menus.footer]]
+  name = 'Terms'
+  pageRef = '/terms'
+  weight = 30

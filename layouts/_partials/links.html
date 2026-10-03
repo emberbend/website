@@ -1,0 +1,6 @@
+<nav class="links">
+  <a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a>
+  {{- range site.Menus.footer }}
+  <a href="{{ .URL }}">{{ .Name }}</a>
+  {{- end }}
+</nav>

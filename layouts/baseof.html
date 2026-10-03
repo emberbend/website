@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="{{ site.Language.LanguageCode }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+  <meta name="color-scheme" content="dark light">
+  <link rel="icon" href="/images/emberbend-icon-dusk.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/images/emberbend-icon-dawn.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
+  <link rel="preload" href="/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  {{- with resources.Get "css/main.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+  {{- end }}
+  <link rel="canonical" href="{{ .Permalink }}">
+</head>
+<body{{ if .IsHome }} class="home"{{ end }}>
+  <div class="horizon" aria-hidden="true"></div>
+  {{- if not .IsHome }}
+  <header class="site-header">
+    <a href="/" class="home-link">{{ partial "lockup.html" "horizontal" }}</a>
+  </header>
+  {{- end }}
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+  {{- if not .IsHome }}
+  <footer class="site-footer">
+    {{ partial "links.html" . }}
+  </footer>
+  {{- end }}
+</body>
+</html>
